@@ -1,0 +1,432 @@
+{
+  "info": {
+    "_postman_id": "b0f1b5a9-8f8f-4f2e-8a1a-3e2c3b2f1c1a",
+    "name": "Delivery Tech API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health & Info",
+      "item": [
+        {
+          "name": "GET Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["health"]
+            },
+            "description": "Status da aplicação (inclui versão Java)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/info",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["info"]
+            },
+            "description": "Informações da aplicação (usando Java Records)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "Create Client",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"João da Silva\",\n    \"email\": \"joao.silva@exemplo.com\",\n    \"phoneNumber\": \"(11) 98765-4321\",\n    \"isActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/clients",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clients"]
+            },
+            "description": "Cadastra um novo cliente"
+          },
+          "response": []
+        },
+        {
+          "name": "Find Active Clients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/clients",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clients"]
+            },
+            "description": "Lista todos os clientes ativos"
+          },
+          "response": []
+        },
+        {
+          "name": "Find Client By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/clients/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clients", "1"]
+            },
+            "description": "Busca um cliente por ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Client",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"João da Silva (Atualizado)\",\n    \"email\": \"joao.silva@exemplo.com\",\n    \"phoneNumber\": \"(11) 99999-9999\",\n    \"isActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/clients/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clients", "1"]
+            },
+            "description": "Atualiza um cliente por ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Inactivate Client",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/clients/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clients", "1"]
+            },
+            "description": "Inativa (soft delete) um cliente por ID"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Restaurants",
+      "item": [
+        {
+          "name": "Create Restaurant",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Pizza Place\",\n    \"category\": \"Pizza\",\n    \"phoneNumber\": \"(21) 12345-6789\",\n    \"isActive\": true,\n    \"rating\": 0.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/restaurants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["restaurants"]
+            },
+            "description": "Cadastra um novo restaurante"
+          },
+          "response": []
+        },
+        {
+          "name": "Find Restaurants (by Rating)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/restaurants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["restaurants"]
+            },
+            "description": "Lista restaurantes (ordenados por avaliação)"
+          },
+          "response": []
+        },
+        {
+          "name": "Find Restaurant By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/restaurants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["restaurants", "1"]
+            },
+            "description": "Busca um restaurante por ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Find By Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/restaurants/by_category?name=Pizza",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["restaurants", "by_category"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Pizza"
+                }
+              ]
+            },
+            "description": "Busca restaurantes por categoria"
+          },
+          "response": []
+        },
+        {
+          "name": "Deactivate Restaurant",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/restaurants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["restaurants", "1"]
+            },
+            "description": "Desativa (soft delete) um restaurante por ID"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Pizza Margherita\",\n    \"restaurantId\": 1,\n    \"category\": \"Pizza\",\n    \"isAvailable\": true,\n    \"price\": 50.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products"]
+            },
+            "description": "Cadastra um novo produto (requer `restaurantId`)"
+          },
+          "response": []
+        },
+        {
+          "name": "Find Product By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products", "1"]
+            },
+            "description": "Busca um produto por ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Find By Restaurant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/by_restaurant?id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products", "by_restaurant"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Busca produtos de um restaurante (ex: `?id=1`)"
+          },
+          "response": []
+        },
+        {
+          "name": "Change Availability",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/1/availability?available=false",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products", "1", "availability"],
+              "query": [
+                {
+                  "key": "available",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "Altera a disponibilidade (ex: `?available=true`)"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products", "1"]
+            },
+            "description": "Deleta (hard delete) um produto por ID"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"clientId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/orders",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["orders"]
+            },
+            "description": "Cria um novo pedido (requer `clientId`)"
+          },
+          "response": []
+        },
+        {
+          "name": "Find By Client",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orders/by_client?id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["orders", "by_client"],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Busca orders de um cliente (ex: `?id=1`)"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"newStatus\": \"ENTREGUE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/orders/1/status",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["orders", "1", "status"]
+            },
+            "description": "Altera o status de um pedido (Ex: `{\"newStatus\": \"ENTREGUE\"}`)"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
